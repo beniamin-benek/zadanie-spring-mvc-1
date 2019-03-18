@@ -3,8 +3,6 @@ package pl.benek.zadaniespringmvc1;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Arrays;
 import java.util.LinkedList;
 
 @Controller
