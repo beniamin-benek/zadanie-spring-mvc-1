@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 
 @Controller
@@ -23,6 +24,24 @@ class HomeController {
         this.products = products;
     }
 
+    @RequestMapping("/lista")
+    @ResponseBody
+    public String add(@RequestParam String name, @RequestParam double price) {
+        products.add(new Product(name, price));
+
+        double sum = 0;
+        for (Product product : products) {
+            sum = sum + product.getPrice();
+        }
+
+        StringBuilder productsList = new StringBuilder();
+        for (Product product : products) {
+            productsList.append("<br>").append(product.toString());
+
+        }
+        return productsList + "<p>Suma cen: " + sum + " zł.";
+    }
+
     @GetMapping("/lista")
     @ResponseBody
     public String add(Model model) {
@@ -37,6 +56,18 @@ class HomeController {
         return "home";
     }
 
+    @GetMapping("/tabela")
+    public String vistTable(Model model) {
+        model.addAttribute("products", products);
+        double sum = 0;
+        for (Product product : products) {
+            sum = sum + product.getPrice();
+        }
+
+        model.addAttribute("sum",sum);
+
+        return "tabela";
+    }
 
 //
 //    @GetMapping("/")

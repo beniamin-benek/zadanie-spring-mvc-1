@@ -13,6 +13,11 @@ class Product {
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return "Produkt:" + "<br>" + "- nazwa: " + name + "<br>" + "\n- cena: " + price + " zł" + "<br>";
+    }
+
     public String getName() {
         return name;
     }

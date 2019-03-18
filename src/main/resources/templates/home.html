@@ -10,19 +10,24 @@
     </style>
 
     <title>Dodawanie produktu</title>
+
 </head>
+
 <body>
-<h2>Dodawanie produktu</h2><br>
-<form action="/lista" method="post" th:object="${newProduct}">
-    <div class="form-group">
-        <label>Nazwa</label>
-        <input type="text" th:field="*{name}" name="product-name" class="form-control" placeholder = "Nazwa" required/>
-    </div>
-    <div class="form-group">
-        <label>Cena</label>
-        <input type="number" th:field="*{price}" step="0.01" min="0" name="product-price" class="form-control" placeholder="0,00 zł" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Dodaj</button>
-</form>
+    <h2>Dodawanie produktu</h2><br>
+    <form action="/lista" method="post" th:object="${newProduct}">
+        <div class="form-group">
+            <label>Nazwa</label>
+            <input type="text" th:field="*{name}" name="product-name" class="form-control" placeholder = "Nazwa" required/>
+        </div>
+        <div class="form-group">
+            <label>Cena</label>
+            <input type="number" th:field="*{price}" step="0.01" min="0" name="product-price" class="form-control" placeholder="0,00 zł" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Dodaj i wyświetl listę</button>
+    </form>
+
+    <br><a href="tabela">Wyświetl tabelę</a>
+
 </body>
 </html>
